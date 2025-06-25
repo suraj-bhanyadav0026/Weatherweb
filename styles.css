@@ -1,0 +1,156 @@
+/* Base Styling */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(135deg, #c2e9fb 0%, #a1c4fd 100%);
+  color: #333;
+  min-height: 100vh;
+  padding-bottom: 2rem;
+  background-attachment: fixed;
+}
+
+/* Navbar */
+.navbar {
+  background: rgba(255, 255, 255, 0.75);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.05);
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.navbar-brand {
+  font-weight: 700;
+  color: #007bff;
+}
+
+.navbar-nav .nav-link {
+  font-weight: 500;
+  color: #333;
+  transition: color 0.3s ease;
+}
+
+.navbar-nav .nav-link:hover,
+.navbar-nav .nav-link.active {
+  color: #007bff;
+}
+
+/* Main Heading */
+h1, h2 {
+  color: #004085;
+  font-weight: 600;
+}
+
+/* Cards */
+.card {
+  border: none;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(8px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.12);
+}
+
+.card-header {
+  background: transparent;
+  font-weight: bold;
+  font-size: 1.3rem;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  color: #0d6efd;
+}
+
+.card-body {
+  font-size: 1.05rem;
+}
+
+.card-title {
+  font-size: 2rem;
+  color: #222;
+}
+
+/* Table */
+.table-responsive {
+  border-radius: 15px;
+  overflow: hidden;
+  margin-top: 2rem;
+}
+
+.table {
+  background-color: white;
+  border-collapse: collapse;
+}
+
+.table th {
+  background-color: #f0f4f8;
+  font-weight: 600;
+  color: #333;
+}
+
+.table td, .table th {
+  padding: 1rem;
+  vertical-align: middle;
+}
+
+/* Search Form */
+form .form-control {
+  border-radius: 25px;
+  padding: 0.5rem 1.25rem;
+  border: 1px solid #ccc;
+  transition: border-color 0.3s ease;
+}
+
+form .form-control:focus {
+  border-color: #0d6efd;
+  outline: none;
+  box-shadow: 0 0 0 0.2rem rgba(13, 110, 253, 0.25);
+}
+
+form button {
+  border-radius: 25px;
+  padding: 0.5rem 1.5rem;
+  transition: all 0.3s ease;
+}
+
+form button:hover {
+  background-color: #0d6efd;
+  color: white;
+}
+
+/* Utilities */
+.text-center {
+  text-align: center;
+}
+
+.my-5 {
+  margin-top: 3rem;
+  margin-bottom: 3rem;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .card-title {
+    font-size: 1.6rem;
+  }
+
+  .table th,
+  .table td {
+    font-size: 0.9rem;
+    padding: 0.75rem;
+  }
+
+  h1 {
+    font-size: 1.8rem;
+  }
+
+  h2 {
+    font-size: 1.4rem;
+  }
+}

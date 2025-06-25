@@ -1,0 +1,267 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Weather App</title>
+
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-4Q6Gf2aSP4eDXB8Miphtr37CMZZQ5oXLH2yaXMJ2w8e2ZtHTl7GptT4jmndRuHDT"
+      crossorigin="anonymous"
+    />
+    <!-- Bootstrap Icons -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css"
+      rel="stylesheet"
+    />
+    <!-- ✅ Custom CSS -->
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+
+  <body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">Weather App</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="#">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">About This App</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link dropdown-toggle"
+                href="#"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                Cities
+              </a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="#">Delhi</a></li>
+                <li><a class="dropdown-item" href="#">Bengaluru</a></li>
+                <li><hr class="dropdown-divider" /></li>
+                <li><a class="dropdown-item" href="#">Chhapra</a></li>
+              </ul>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link disabled" tabindex="-1" aria-disabled="true">Usage Guide</a>
+            </li>
+          </ul>
+          <!-- ✅ Updated form -->
+          <form class="d-flex" role="search" id="searchForm">
+            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" id="searchInput" />
+            <button class="btn btn-outline-success" type="submit">Search</button>
+          </form>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="container my-5">
+      <h1 class="my-4 text-center">Weather for ???</h1>
+      <main>
+        <!-- Cards -->
+        <div class="row row-cols-1 row-cols-md-3 mb-3 text-center">
+          <!-- Temperature Card -->
+          <div class="col">
+            <div class="card mb-4 rounded-3 shadow-sm">
+              <div class="card-header py-3">
+                <h4 class="my-0 fw-normal">Temperatures</h4>
+              </div>
+              <div class="card-body">
+                <h1 class="card-title pricing-card-title">
+                  <span id="tem2"></span>
+                </h1>
+                <ul class="list-unstyled mt-3 mb-4">
+                  <li>Temperature is <span id="tem"></span></li>
+                  <li>Min Temperature is <span id="min_tem"></span></li>
+                  <li>Max Temperature is <span id="max_tem"></span></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <!-- Humidity Card -->
+          <div class="col">
+            <div class="card mb-4 rounded-3 shadow-sm">
+              <div class="card-header py-3">
+                <h4 class="my-0 fw-normal">Humidity Info</h4>
+              </div>
+              <div class="card-body">
+                <h1 class="card-title pricing-card-title">
+                  <span id="humidity2"></span>
+                </h1>
+                <ul class="list-unstyled mt-3 mb-4">
+                  <li>Wind Degrees is <span id="wind_Degrees"></span></li>
+                  <li>Feels Like <span id="feels_like"></span></li>
+                  <li>Humidity is <span id="humidity"></span></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <!-- Wind Card -->
+          <div class="col">
+            <div class="card mb-4 rounded-3 shadow-sm border-primary">
+              <div class="card-header py-3 text-bg-primary border-primary">
+                <h4 class="my-0 fw-normal">Wind Info</h4>
+              </div>
+              <div class="card-body">
+                <h1 class="card-title pricing-card-title">
+                  <span id="wind_speed2"></span>
+                </h1>
+                <ul class="list-unstyled mt-3 mb-4">
+                  <li>Wind Speed is <span id="wind_speed"></span></li>
+                  <li>Sunrise Time is <span id="sunrise"></span></li>
+                  <li>Sunset Time is <span id="sunset"></span></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Weather Table -->
+        <h2 class="display-6 text-center mb-4">Weather of Other Common Places</h2>
+        <div class="table-responsive">
+          <table class="table text-center">
+            <thead>
+              <tr>
+                <th>City</th>
+                <th>Feels Like</th>
+                <th>Humidity</th>
+                <th>Max Temp</th>
+                <th>Min Temp</th>
+                <th>Sunrise</th>
+                <th>Sunset</th>
+                <th>Temperature</th>
+                <th>Wind Degrees</th>
+                <th>Wind Speed</th>
+              </tr>
+            </thead>
+            <tbody id="weatherTableBody">
+              <tr data-city="Chhapra"><th class="text-start">Chhapra</th><td colspan="9">Loading...</td></tr>
+              <tr data-city="Boston"><th class="text-start">Boston</th><td colspan="9">Loading...</td></tr>
+              <tr data-city="Patna"><th class="text-start">Patna</th><td colspan="9">Loading...</td></tr>
+              <tr data-city="Bhagalpur"><th class="text-start">Bhagalpur</th><td colspan="9">Loading...</td></tr>
+              <tr data-city="Mumbai"><th class="text-start">Mumbai</th><td colspan="9">Loading...</td></tr>
+              <tr data-city="Shanghai"><th class="text-start">Shanghai</th><td colspan="9">Loading...</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </main>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-j1CDi7MgGQ12Z7Qab0qlWQ/Qqz24Gc6BM0thvEMVjHnfYGF0rmFCozFSxQBxwHKO"
+      crossorigin="anonymous"
+    ></script>
+
+    <!-- Weather Script -->
+    <script>
+      window.onload = function () {
+        class WeatherFetcher {
+          constructor(apiKey) {
+            this.apiKey = apiKey;
+          }
+
+          formatTime(unixTime) {
+            return new Date(unixTime * 1000).toLocaleTimeString();
+          }
+
+          async fetchWeather(city) {
+            const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${this.apiKey}&units=metric`;
+            const res = await fetch(url);
+            if (!res.ok) throw new Error("City not found");
+            const data = await res.json();
+            return {
+              feels_like: data.main.feels_like + "°C",
+              humidity: data.main.humidity + "%",
+              max_temp: data.main.temp_max + "°C",
+              min_temp: data.main.temp_min + "°C",
+              sunrise: this.formatTime(data.sys.sunrise),
+              sunset: this.formatTime(data.sys.sunset),
+              temperature: data.main.temp + "°C",
+              wind_deg: data.wind.deg + "°",
+              wind_speed: data.wind.speed + " m/s"
+            };
+          }
+
+          async updateTable() {
+            const rows = document.querySelectorAll("#weatherTableBody tr");
+            for (const row of rows) {
+              const city = row.dataset.city;
+              try {
+                const w = await this.fetchWeather(city);
+                row.innerHTML = `
+                  <th class="text-start">${city}</th>
+                  <td>${w.feels_like}</td>
+                  <td>${w.humidity}</td>
+                  <td>${w.max_temp}</td>
+                  <td>${w.min_temp}</td>
+                  <td>${w.sunrise}</td>
+                  <td>${w.sunset}</td>
+                  <td>${w.temperature}</td>
+                  <td>${w.wind_deg}</td>
+                  <td>${w.wind_speed}</td>
+                `;
+              } catch (err) {
+                row.innerHTML = `<th class="text-start">${city}</th><td colspan="9">Error loading data</td>`;
+              }
+            }
+          }
+        }
+
+        const app = new WeatherFetcher("6f9a9206b2918b327d1424f415c32fc6");
+        app.updateTable();
+
+        // ✅ Search Form Logic
+        document.getElementById("searchForm").addEventListener("submit", async function (e) {
+          e.preventDefault();
+          const city = document.getElementById("searchInput").value.trim();
+          if (!city) return;
+
+          try {
+            const weather = await app.fetchWeather(city);
+
+            document.querySelector("h1.text-center").textContent = `Weather for ${city}`;
+            document.getElementById("tem").textContent = weather.temperature;
+            document.getElementById("tem2").textContent = weather.temperature;
+            document.getElementById("min_tem").textContent = weather.min_temp;
+            document.getElementById("max_tem").textContent = weather.max_temp;
+            document.getElementById("feels_like").textContent = weather.feels_like;
+            document.getElementById("humidity").textContent = weather.humidity;
+            document.getElementById("humidity2").textContent = weather.humidity;
+            document.getElementById("wind_speed").textContent = weather.wind_speed;
+            document.getElementById("wind_Degrees").textContent = weather.wind_deg;
+            document.getElementById("wind_speed2").textContent = weather.wind_speed;
+            document.getElementById("sunrise").textContent = weather.sunrise;
+            document.getElementById("sunset").textContent = weather.sunset;
+          } catch (err) {
+            alert("City not found. Please enter a valid city name.");
+          }
+        });
+      };
+    </script>
+  </body>
+</html>
